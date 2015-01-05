@@ -8,7 +8,7 @@ ko.bindingHandlers.sortBy = {
       var data = value.array;
       var sortBy = value.sortBy;
 
-      if(!(ko.isObservable(data) && !Array.isArray(data())) throw "Incorrect argument for array. Array must be an observableArray";
+      if(!(ko.isObservable(data) && !Array.isArray(data()))) throw "Incorrect argument for array. Array must be an observableArray";
 
       asc = !asc;
 
