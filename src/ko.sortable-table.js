@@ -26,17 +26,18 @@ ko.bindingHandlers.sortBy = {
               if(a[field] == b[field]) continue;
               return a[field] > b[field] ? 1 : -1;
             }
-          })
+          });
           break;
         case typeof sortBy === "string":
           data.sort(function(a,b){
             return a[sortBy] > b[sortBy] ? 1 : a[sortBy] < b[sortBy] ? -1 : 0;
-          })
+          });
           break;
         default:
           throw "Incorrect argument for sortBy";
-          break;
       }
+
+      if(!asc) data.reverse();
     };
   }
 };
