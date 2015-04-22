@@ -3,6 +3,7 @@ ko.bindingHandlers.sortBy = {
         var c = !0;
         a.style.cursor = "pointer", a.onclick = function() {
             var a = b(), d = a.array, e = a.sortBy;
+            if (ko.isObservable(d) && !Array.isArray(d())) throw "Incorrect argument for array. Array must be an observableArray";
             switch (c = !c, !0) {
               case "function" == typeof e:
                 d.sort(e);
@@ -27,6 +28,7 @@ ko.bindingHandlers.sortBy = {
               default:
                 throw "Incorrect argument for sortBy";
             }
+            c || d.reverse();
         };
     }
 };
