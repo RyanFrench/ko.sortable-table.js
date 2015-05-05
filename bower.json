@@ -1,0 +1,24 @@
+{
+  "name": "ko.sortable-table.js",
+  "version": "0.1.3",
+  "homepage": "https://github.com/RyanFrench/ko.sortable-table.js",
+  "authors": [
+    "Ryan French <ryan@ryanfrench.co>"
+  ],
+  "description": "A binding handler for creating sortable tables in knockout",
+  "main": "dist/ko.sortable-table.min.js",
+  "keywords": [
+    "knockout"
+  ],
+  "dependencies": {
+    "knockoutjs": "~3.3.0"
+  },
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
