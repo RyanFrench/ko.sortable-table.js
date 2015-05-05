@@ -5,6 +5,10 @@ A knockout.js binding handler to create a sortable table.
 
 Click on the table header to sort by the specified field. Initial sorting is not done by default. The first click on a field will always result in the column being sorted in descending order. Subsequent clicks will reverse the order.
 
+##Install
+
+bower install ko.sortable-table
+
 ##Usage
 
 ###Basic Example
@@ -70,6 +74,29 @@ function sortFunction(a,b){
   <thead>
     <th>
       <td data-bind="sortBy: { array: table_data, sortBy: sortFunction }">Field One</td>
+      <td>Field Two</td>
+      <td>Field Three</td>
+    </th>
+  </thead>
+  <tbody data-bind="foreach: table_data">
+    <tr>
+      <td data-bind="text: field_one"></td>
+      <td data-bind="text: field_two"></td>
+      <td data-bind="text: field_three"></td>
+    </tr>
+  </tbody>
+</table>
+```
+
+###Add CSS styling to table header
+
+A CSS class object can be passed to the binding handler for styling the header field when it is clicked
+
+```html
+<table>
+  <thead>
+    <th>
+      <td data-bind="sortBy: { array: table_data, sortBy: sortFunction, css: { asc: 'asc', desc: 'desc' } }">Field One</td>
       <td>Field Two</td>
       <td>Field Three</td>
     </th>
