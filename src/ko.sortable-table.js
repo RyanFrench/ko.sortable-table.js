@@ -29,9 +29,10 @@ ko.bindingHandlers.sortBy = {
           });
           break;
         case typeof sortBy === "string":
-          data.sort(function(a,b){
-            return a[sortBy] > b[sortBy] ? 1 : a[sortBy] < b[sortBy] ? -1 : 0;
-          });
+            if(typeof a[sortBy] ==='function')
+              return a[sortBy]() > b[sortBy]() ? 1 : a[sortBy]() < b[sortBy]() ? -1 : 0;
+            else
+              return a[sortBy] > b[sortBy] ? 1 : a[sortBy] < b[sortBy] ? -1 : 0;
           break;
         default:
           throw "Incorrect argument for sortBy";
