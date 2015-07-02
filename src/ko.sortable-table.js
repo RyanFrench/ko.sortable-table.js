@@ -22,7 +22,7 @@ ko.bindingHandlers.sortBy = {
       }
     };
 
-    if((ko.isObservable(data) && !Array.isArray(data()))) throw "Incorrect argument for array. Must be an observableArray";
+    if(!ko.isObservable(data) || !Array.isArray(data())) throw "Incorrect argument for array. Must be an observableArray";
 
     switch(true) {
         case typeof sortBy === "function":

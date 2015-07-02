@@ -1,5 +1,5 @@
 ko.bindingHandlers.sortBy = {
-    init: function(element, valueAccessor) {
+    init: function(element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
         var asc = !0;
         element.style.cursor = "pointer";
         var value = valueAccessor(), data = value.array, sortBy = value.sortBy, sortFunction = null, siblings = element.parentNode.querySelectorAll("th"), updateCSS = function() {
@@ -8,7 +8,7 @@ ko.bindingHandlers.sortBy = {
             asc ? (value.css.desc && element.classList.remove(value.css.desc), value.css.asc && element.classList.add(value.css.asc)) : (value.css.asc && element.classList.remove(value.css.asc), 
             value.css.desc && element.classList.add(value.css.desc));
         };
-        if (ko.isObservable(data) && !Array.isArray(data())) throw "Incorrect argument for array. Must be an observableArray";
+        if (!ko.isObservable(data) || !Array.isArray(data())) throw "Incorrect argument for array. Must be an observableArray";
         switch (!0) {
           case "function" == typeof sortBy:
             sortFunction = sortBy;
